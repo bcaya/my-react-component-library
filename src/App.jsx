@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import Button from './components/Button/Button'
 import './App.css'
+import Menu from './components/Menu'
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -12,9 +14,15 @@ function App() {
           count is {count}
         </button>
         <Button size="lg">BUtttonnn</Button>
-        <p>
-          Youre components go here! 
-        </p>
+        <Menu onOpen={() => console.log("Opened/closed")}>
+        <Menu.Button>Menu</Menu.Button>
+        <Menu.Dropdown>
+          <Menu.Item>Home</Menu.Item>
+          <Menu.Item>About</Menu.Item>
+          <Menu.Item>Contact</Menu.Item>
+          <Menu.Item>Blog</Menu.Item>
+        </Menu.Dropdown>
+      </Menu>
       </div>
     </>
   )
