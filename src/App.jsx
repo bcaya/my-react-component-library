@@ -4,19 +4,19 @@ import './App.css'
 import Menu from './components/Menu'
 import Badge from './components/Badge/Badge'
 import Banner from './components/Banner'
-
-
+import Card from './components/Card/Card'
+import Testimonial from './components/Testiomonial/Testimonial'
+import image from './image.png'
+import Tooltip from './components/Tooltip/Tooltip'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <div className="box cluster">
+      <div className="stack-xl background-color">
+        <div className="box">
+        <div className="box"><h2>Button Components</h2></div>
+         <div className="cluster"> 
           <Button size="xsm">Extra Small button</Button>
           <Button size="sm">Small button</Button>
           <Button>Normal button</Button>
@@ -24,9 +24,11 @@ function App() {
           <Button size="xl">Extra Large button</Button>
           <Button variant="success">Success button</Button>
           <Button variant="warning">Warning button</Button>
-          <Button variant="danger">Danger button</Button>
+          <Button variant="danger">Danger button</Button></div>
         </div>
-        <div className="box cluster">
+        <div className="box">
+        <div className="box"><h2>Badge Components</h2></div>
+        <div className="cluster">
           <Badge>Badge</Badge>
           <Badge color="yellow">Yellow badge</Badge>
           <Badge color="blue">Blue badge</Badge>
@@ -34,9 +36,10 @@ function App() {
           <Badge color="red">Red badge</Badge>
           <Badge color="orange">Orange badge</Badge>
           <Badge color="green">Green badge</Badge>
-
+        </div>
         </div>
         <div className="box">
+        <div className="box"><h2>Menu Component</h2></div>
         <Menu onOpen={() => console.log("Opened/closed")}>
         <Menu.Button>Menu</Menu.Button>
         <Menu.Dropdown>
@@ -46,6 +49,9 @@ function App() {
           <Menu.Item>Blog</Menu.Item>
         </Menu.Dropdown>
       </Menu>
+      </div>
+     <div className="box">
+      <div className="box"><h2>Banner Components</h2></div>
       <div className="box stack">
         <Banner status="success">
          <Banner.Text>Congratulations!</Banner.Text>
@@ -76,7 +82,27 @@ function App() {
          <Banner.Text>Error!</Banner.Text>
         </Banner>
       </div>
-        </div>
+     </div>
+      <div className="box">
+        <div className="box"><h2>Card Components</h2></div>
+      <div className="grid">
+        <Card icon={<i className="fa-solid fa-bomb"></i>}/>
+        <Card />
+        <Card icon={<i className="fa-solid fa-bomb"></i>}>Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.</Card>
+      </div>
+      </div>
+      <div className="stack">
+        <div className="box"><h2>Testimonial Components</h2></div>
+        <Testimonial src={image} alt={"a picture"}/>
+        <Testimonial>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a nisi a est auctor interdum. Donec sem est, mollis sit amet ligula eu, scelerisque tincidunt nisi. Quisque dignissim velit eu purus eleifend blandit.</Testimonial>
+        <Testimonial 
+          reviewText='Lorem ipsum dolor sit amet, consectetur adipscing elit. Duis a nisi a est auctor interdum mollis sit amet ligula eu, scelerisque tincidunt nisi. Quisque dignissim velit eu purus eleifend blandit.'
+          reviewerTitle='Pass a value to "reviewerTitle" to update this.'
+          reviewer='Pass a value to "reviewer" to update this.'/>
+      </div>
+      <div className="box stack">
+        <Tooltip>Lorem ipsum dolor sit amet consectetur adipisicing elit oluptatum tenetur.</Tooltip>
+      </div>
       </div>
     </>
   )
