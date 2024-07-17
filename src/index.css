@@ -74,6 +74,23 @@ body {
   background-color: var(--color-dark);
 }
 
+.frame {
+  --n: 3;
+  --d: 2;
+  aspect-ratio: var(--n) / var(--d);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.frame > img,
+.frame > video {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
 /* Buttons */
 
 button {
@@ -334,22 +351,7 @@ background: #F9FAFB;
  max-inline-size: 16rem;
   border-radius: 8px;
 }
-.frame {
-  --n: 3;
-  --d: 2;
-  aspect-ratio: var(--n) / var(--d);
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.frame > img,
-.frame > video {
-  inline-size: 100%;
-  block-size: 100%;
-  object-fit: cover;
-}
 .testimonial-text p {
   font-size: x-large;
 }
@@ -362,6 +364,39 @@ background: #F9FAFB;
   font-weight:700;
 }
 
+/* menu */
+.menu{
+  position: relative;
+  display:inline-block;
+}
+
+
+.menu-item{
+  color:var(--color-dark);
+  padding: .75rem;
+  cursor: pointer;
+  min-width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+.menu-dropdown{
+  position: absolute;
+  left: 0; 
+  margin-top: 3px;
+  background-color: var(--color-light);
+  border:1px solid gray;
+  border-radius: 8px;
+}
+
+.menu-item:hover {
+  background-color: whitesmoke;
+}
+
+.menu-item:not(:last-child) {
+  border-bottom: 1px solid var(--color-purple);
+}
 .tooltip{
   max-width: 24rem;
   background-color: var(--color-blue);
@@ -373,10 +408,39 @@ background: #F9FAFB;
 .tooltip p{
   padding: 1.4rem;
 }
+
+.nav-list ul{
+  list-style-type: none;
+  padding-top:var(--s5);
+ 
+}
+
+.nav-list *+*{
+  margin-top:var(--s-3);
+}
+
+.nav-list {
+  min-width:20vw;
+  background-color: #e4dbd7;
+}
+.sticky{
+  margin-top:var(--s0);
+  height: 100vh; 
+  min-height: 200px; 
+  overflow: auto; 
+  position: -webkit-sticky; 
+  position: sticky; 
+  top: 10px; 
+}
+.nav-list li{
+  padding:var(--s0);
+
+
+}
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #e6f7f4;
+    color: var(--color-dark);
+    background-color: #e4dbd7;
   }
   a:hover {
     color: #747bff;
@@ -384,4 +448,15 @@ background: #F9FAFB;
   button {
     background-color: #f9f9f9;
   }
+}
+*, :after, :before {
+  box-sizing: border-box;
+  font-family: inherit;
+  color: inherit;
+  overflow-wrap: break-word;
+  margin: 0;
+  padding: 0;
+  border: 0 solid;}
+  footer, header, main, nav {
+    display: block;
 }
